@@ -8,3 +8,4 @@ $db = new Database($config['database']);
 $products = $db->query("SELECT * FROM products")->get();
 
 require "views/products/index.view.php";
+

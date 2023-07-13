@@ -30,7 +30,7 @@
 
         <div class="checkout-header-middle-section">
           Checkout (<a class="return-to-home-link"
-            href="../products/index.view.php">3 items</a>)
+            href="../products/index.view.php"><?= $items_quantity ?> items</a>)
         </div>
 
         <div class="checkout-header-right-section">
@@ -55,7 +55,7 @@
                           <?= $item['product']['name'] ?>
                         </div>
                         <div class="product-price">
-                            $<?= $item['product']['price_cents'] / 100 ?>
+                            $<?= ($item['product']['price_cents'] / 100) * $item['quantity'] ?>
                         </div>
                         <div class="product-quantity">
                           <span>
@@ -64,9 +64,13 @@
                           <span class="update-quantity-link link-primary">
                             Update
                           </span>
-                          <span class="delete-quantity-link link-primary">
+                          <form method="POST" class="delete-form"">
+                          <input type="hidden" name="_method" value="DELETE">
+                          <input type="hidden" name="id" value="<?= $item['cart_id'] ?>">
+                          <button class="delete-quantity-link link-primary delete-button">
                             Delete
-                          </span>
+                          </button>
+                          </form>
                         </div>
                       </div>
 

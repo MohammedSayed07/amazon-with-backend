@@ -22,7 +22,8 @@ foreach($cart_items as $cart_item) {
 
     $products[] = [
         'product' => $product,
-        'quantity' => $cart_item['quantity']
+        'quantity' => $cart_item['quantity'],
+        'cart_id' => $cart_item['id']
     ];
 }
 
